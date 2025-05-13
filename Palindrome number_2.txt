@@ -1,0 +1,35 @@
+
+class Solution {
+
+    public boolean isPalindrome(int x) {
+        int reverse = 0;
+  if (x < 0) return false;
+
+    // Copy of the original number so that the original
+    // number remains unchanged while finding the reverse
+    int temp = x;
+    while (temp != 0) {
+        reverse = (reverse * 10) + (temp % 10);
+        temp = temp / 10;
+    }
+  
+    // If reverse is equal to the original number, the
+    // number is palindrome
+    return (reverse == x);
+}
+
+ public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+        System.out.println("enter num");
+        int n=sc.nextInt();
+        Solution s = new Solution();
+        boolean result = s.isPalindrome(n);
+
+        if (result) {
+            System.out.println(n + " is a palindrome.");
+        } else {
+            System.out.println(n + " is not a palindrome.");
+        }
+    }
+       
+    }

@@ -1,0 +1,48 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int i = 0; // Pointer for unique elements
+        HashSet<Integer> set = new HashSet<>();
+
+        // Store only unique elements in nums[]
+        for (int num : nums) {
+            if (!set.contains(num)) {
+                set.add(num);
+                nums[i++] = num;
+            }
+        }
+
+        // Print new length
+        System.out.println("New length of array: " + i);
+
+        // Print unique elements
+        System.out.print("Array without duplicates: ");
+        for (int j = 0; j < i; j++) {
+            System.out.print(nums[j] + " ");
+        }
+        System.out.println();
+
+        return i; // Return the number of unique elements
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter array length:");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // Create an instance of Solution and call removeDuplicates
+        Solution solution = new Solution();
+        solution.removeDuplicates(arr);
+
+        sc.close(); // Close Scanner
+    }
+}
